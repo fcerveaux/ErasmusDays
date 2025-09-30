@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Intégration Genially</title>
+
+  <!-- Accélère la connexion -->
+  <link rel="preconnect" href="https://view.genially.com" crossorigin>
+
+  <style>
+    :root { --radius: 16px; }
+    html,body{margin:0;padding:0;background:#0b0b0b;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;}
+    .wrap{max-width:1200px;margin:0 auto;padding:16px}
+    .frame{
+      position:relative;
+      border:0; width:100%;
+      aspect-ratio: 16 / 9;          /* Responsive sans JS */
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      background:#111;
+    }
+    .notice{margin-top:12px;padding:12px 14px;border-radius:12px;background:#1b1b1b;border:1px solid #2a2a2a}
+    .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#222;border:1px solid #2a2a2a;font-size:12px;margin-right:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 style="margin:0 0 10px;font-weight:600;">Mon Genially</h1>
+
+    <iframe
+      class="frame"
+      src="https://view.genially.com/TON-ID"
+      title="Contenu interactif Genially"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="fullscreen; autoplay; clipboard-write"
+      allowfullscreen>
+    </iframe>
+
+    <div id="offline" class="notice" hidden>
+      <span class="badge">Hors-ligne</span>
+      Ce contenu est hébergé chez Genially : sans connexion, l’iframe ne peut pas se charger.
+    </div>
+
+    <noscript>
+      <div class="notice">
+        Le contenu nécessite JavaScript. <a href="https://view.genially.com/5f9300da958ac80d6798faae/game-breakout-erasmusdays-at-lpo-nms" target="_blank" rel="noopener">Ouvrir dans une nouvelle fenêtre</a>.
+      </div>
+    </noscript>
+  </div>
+
+  <script>
+    // Affiche un message si l’utilisateur est hors-ligne
+    function update(){ document.getElementById('offline').hidden = navigator.onLine; }
+    addEventListener('online', update); addEventListener('offline', update); update();
+
+    // (Optionnel) si tu veux un ratio autre que 16:9, ajuste la propriété CSS aspect-ratio.
+    // Exemple: 4/3 → .frame { aspect-ratio: 4 / 3; }
+  </script>
+</body>
+</html>
